@@ -1,21 +1,21 @@
 NAME = libftprintf.a
 
-CC = CC
+CC = cc
 
 RM = rm -f
 
-FLAGS = -Wall, -Wextra and -Werror
+FLAGS = -Wall -Wextra -Werror
 
 SRC = ft_printf.c
 
-OBJ = $(SRC: .c=.o)
+OBJ = $(SRC :.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 		ar rc $(NAME) $(OBJ)
 
-%.o: %.c 
+%.o: %.c header.h
 	$(CC) $(FLAGS) -o $@ -c $<
 
 clean:
