@@ -6,13 +6,13 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:11:38 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/06 17:14:45 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:49:30 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "ft_printf.h"
 
-int ft_nlen (long n)
+static int	ft_nlen (long n)
 {
 	int len = 0;
 	if (n == 0)

@@ -6,14 +6,15 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 19:09:07 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/06 17:37:58 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:37:49 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "header.h"
+#include "ft_printf.h"
 
 // format = "hamza %d %s" , 1 , "man";
+
 
 int	ft_printf(const char *format , ...)
 {
@@ -22,24 +23,31 @@ int	ft_printf(const char *format , ...)
 	
 	i = 0;
 	count = 0;
-	va_list argPtr;
-	va_start(argPtr, format);
-	
-	
+	va_list argptr;
+	va_start(argptr, format);
+	if (write(1, "", 0) == -1)
+		return -1;
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+				break;
 			if(format[i + 1] == '%')
 				count = count + ft_putchar('%');
 			else if (format[i + 1] == 's')
-				count = count + ft_putstr(va_arg(argPtr, char *));
+				count = count + ft_putstr(va_arg(argptr, char *));
 			else if (format[i + 1] == 'c')
-				count = count + ft_putchar(va_arg(argPtr, int));
+				count = count + ft_putchar(va_arg(argptr, int));
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
-				count = count + ft_putdes(va_arg(argPtr, int));
+				count = count + ft_putdes(va_arg(argptr, int));
 			else if (format[i + 1] == 'x' || format[i + 1] == 'X')
-				count = count + ft_puthex(va_arg(argPtr, int), format[i + 1]);
+				count = count + ft_puthex(va_arg(argptr, int), format[i + 1]);
+			else if (format[i + 1] == 'u')
+				count = count + ft_put_unsigned_des(va_arg(argptr, int));
+			else if (format[i + 1] == 'p')
+				count += ft_putadd(va_arg(argptr, void *));
+				
 			i++;
 		}
 		else
@@ -49,14 +57,14 @@ int	ft_printf(const char *format , ...)
 		}
 		i++;
 	}
-	//va_end(argPtr);
+	va_end(argptr);
 	return (count);
 }
 // #include <stdio.h>
 // int main()
 // {
-// 	int a;
-// 	printf(" ham %X", 14);
-// 	//printf("");
+// 	//printf("%");
+// 	ft_printf("%");
+
 	
 // }
