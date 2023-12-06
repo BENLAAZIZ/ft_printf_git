@@ -2,13 +2,13 @@ NAME = libftprintf.a
 
 CC = cc
 
-RM = rm -f
-
 FLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c
+RM = rm -f
 
-OBJ = $(SRC :.c=.o)
+SRC = ft_printf.c ft_putchar.c ft_putstr.c ft_putdes.c
+
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
