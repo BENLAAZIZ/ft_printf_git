@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putdes.c                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 15:11:38 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/06 17:14:45 by hben-laz         ###   ########.fr       */
+/*   Created: 2023/12/06 16:22:02 by hben-laz          #+#    #+#             */
+/*   Updated: 2023/12/06 17:32:42 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int ft_nlen (long n)
+
+int ft_len (long n)
 {
 	int len = 0;
 	if (n == 0)
@@ -31,30 +32,29 @@ int ft_nlen (long n)
 	return len;
 }
 
-int	ft_putdes(long n)
+int	ft_puthex(int n, char x)
 {
-	int len = ft_nlen (n);
-	
-	if (n < 0)
-	{
-		ft_putchar('-');
-		ft_putdes(-n);
-	}
-	else if (n >= 0 && n <= 9)
-		ft_putchar(n + '0');
-	else
-	{
-		ft_putdes((n / 10));
-		ft_putchar((n % 10) + '0');
-	}
+	int	remainder;
+	int len;
+
+	len = ft_len (n);
+    if (n < 0)
+    {
+        ft_putchar('-');
+        n = -n;
+    }
+    if (n / 16 > 0)
+        ft_puthex(n / 16, x);
+	remainder = n % 16;
+    if (remainder < 10)
+        ft_putchar('0' + remainder);
+    else if (x == 'x')
+        ft_putchar('a' + remainder - 10);
+	else if (x == 'X')
+        ft_putchar('A' + remainder - 10);
 	return (len);
 }
-
-
-// #include <stdio.h>
-
-// int main ()
+// int main()
 // {
-// 	// int i = ft_putdes(-12345);
-// 	int a = ft_putdes(14748364);
+// 	int a = ft_puthex(13, 'X');
 // }

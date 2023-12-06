@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 19:09:07 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/06 16:02:02 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/12/06 17:37:58 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	ft_printf(const char *format , ...)
 	va_list argPtr;
 	va_start(argPtr, format);
 	
+	
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -37,7 +38,9 @@ int	ft_printf(const char *format , ...)
 				count = count + ft_putchar(va_arg(argPtr, int));
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 				count = count + ft_putdes(va_arg(argPtr, int));
-				i++;
+			else if (format[i + 1] == 'x' || format[i + 1] == 'X')
+				count = count + ft_puthex(va_arg(argPtr, int), format[i + 1]);
+			i++;
 		}
 		else
 		{
@@ -46,13 +49,14 @@ int	ft_printf(const char *format , ...)
 		}
 		i++;
 	}
-	va_end(argPtr);
+	//va_end(argPtr);
 	return (count);
 }
-#include <stdio.h>
-int main()
-{
-	ft_printf("%d\t%s", 12345, "hamza");
-	//ft_printf("hamza");
+// #include <stdio.h>
+// int main()
+// {
+// 	int a;
+// 	printf(" ham %X", 14);
+// 	//printf("");
 	
-}
+// }
