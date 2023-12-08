@@ -6,29 +6,30 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:44:18 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/06 19:49:24 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/12/08 12:01:15 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_nlen (long n)
+static int	ft_nlen(long n)
 {
-	int len = 0;
+	int	len;
+
+	len = 0;
 	if (n == 0)
 		len += 1;
 	if (n < 0)
 	{
-		n = n * -1;
+		n = n * (-1);
 		len++;
 	}
-		
 	while (n > 0)
 	{
 		n = n / 10;
 		len++;
 	}
-	return len;
+	return (len);
 }
 
 int	ft_put_unsigned_des(unsigned int n)
