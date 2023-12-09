@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:44:18 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/08 12:01:15 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/12/09 19:57:52 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ static int	ft_nlen(long n)
 	len = 0;
 	if (n == 0)
 		len += 1;
-	if (n < 0)
-	{
-		n = n * (-1);
-		len++;
-	}
 	while (n > 0)
 	{
 		n = n / 10;
@@ -31,7 +26,7 @@ static int	ft_nlen(long n)
 	}
 	return (len);
 }
-
+#include <stdio.h>
 int	ft_put_unsigned_des(unsigned int n)
 {
 	int	len;
@@ -46,3 +41,12 @@ int	ft_put_unsigned_des(unsigned int n)
 	}
 	return (len);
 }
+// int main()
+// {
+// 	 ft_put_unsigned_des(-123);
+
+// 	printf("\n%u", -123);
+// 	int i = -123;
+// 	printf("\n%u", (unsigned int)i);
+
+// }

@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 19:09:07 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/08 11:51:34 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/12/09 19:58:13 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,8 @@ int	ft_printf(const char *format, ...)
 	va_end(argptr);
 	return (count);
 }
+// int main()
+// {
+// 	ft_printf("my name is %s i am %d ", "hamza", 15);
+// 	return (0);
+// }
