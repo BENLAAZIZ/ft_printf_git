@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_put_unsig_dec.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 17:23:14 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/10 22:21:41 by hben-laz         ###   ########.fr       */
+/*   Created: 2023/12/10 22:23:01 by hben-laz          #+#    #+#             */
+/*   Updated: 2023/12/10 22:32:09 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+ #include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_put_unsig_dec(unsigned int n)
+{
+	int	c;
 
-int	ft_printf(const char *format, ...);
-int	ft_putchar(const char c);
-int	ft_putstr(const char *str);
-int	ft_putdec(int n);
-int	ft_put_hex(unsigned int n, char x);
-int	ft_put_unsig_dec(unsigned int n);
-
-#endif
+	c = 0;
+	if (n >= 0 && n <= 9)
+		c += ft_putchar(n + 48);
+	else
+	{
+		c += ft_putdec(n / 10);
+		c += ft_putchar((n % 10) + 48);
+	}
+	return (c);
+}

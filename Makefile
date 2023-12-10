@@ -6,7 +6,7 @@ FLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRC = ft_printf.c ft_putchar.c ft_putstr.c ft_putdec.c ft_put_hex.c
+SRC = ft_printf.c ft_putchar.c ft_putstr.c ft_putdec.c ft_put_hex.c ft_put_unsig_dec.c
 
 OBJ = $(SRC:.c=.o)
 
