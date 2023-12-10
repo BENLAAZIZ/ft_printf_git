@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 17:17:44 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/10 19:50:25 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/12/10 21:49:32 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@ int	ft_printf(const char *format, ...)
 			else if (format[i] == 'x' || format[i] == 'X')
 				count += ft_put_hex(va_arg(ptr, int), format[i]);
 		}
+		else
+			count += ft_putchar(format[i]);
+		i++;
 	}
-	
+	return (count);
+}
+#include <stdio.h>
+int main()
+{
+	char *c = NULL;
+	printf("\n%c", *c);
 }

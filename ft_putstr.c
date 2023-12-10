@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 17:58:12 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/10 18:04:31 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/12/10 21:30:44 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_putstr(const char *str)
 	int	i;
 	int count;
 	
+	i = 0;
+	count = 0;
 	if (str == NULL)
 		return (0);
 	while (str[i])

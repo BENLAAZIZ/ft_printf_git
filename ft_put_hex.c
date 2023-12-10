@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:48:47 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/10 21:10:33 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/12/10 22:09:18 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,4 @@ int	ft_put_hex(unsigned int n, char x)
 	else if (x == 'X')
 		c += ft_putchar('A' + a - 10);
 	return (c);
-}
-#include <stdio.h>
-int main()
-{
-	int a = ft_put_hex(-15, 'x');
-	int k = printf("%x", -15);
-	 printf("\t %d\n%x\n", a, -15);
-	printf("%d", k);
 }
