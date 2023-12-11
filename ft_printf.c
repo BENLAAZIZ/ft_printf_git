@@ -6,7 +6,7 @@
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 17:17:44 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/10 22:37:16 by hben-laz         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:50:56 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	ft_printf(const char *format, ...)
 				count += ft_put_hex(va_arg(ptr, int), format[i]);
 			else if (format[i] == 'u')
 				count += ft_put_unsig_dec(va_arg(ptr, unsigned int));
+			else if (format[i] == 'p')
+				count += ft_put_addres(va_arg(ptr, void *));
 		}
 		else
 			count += ft_putchar(format[i]);
