@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_hex.c                                       :+:      :+:    :+:   */
+/*   ft_put_decimal.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 19:48:47 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/10 22:09:18 by hben-laz         ###   ########.fr       */
+/*   Created: 2023/12/10 18:44:52 by hben-laz          #+#    #+#             */
+/*   Updated: 2023/12/11 17:18:43 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_put_hex(unsigned int n, char x)
+int	ft_put_decimal(int n)
 {
-	int a;
-	int c = 0;
-	
-	if (n / 16 > 0)
-		c += ft_put_hex(n / 16, x);
-	a = n % 16;
-	if (a < 10)
-		c += ft_putchar(a + 48);
-	else if (x == 'x')
-		c += ft_putchar('a' + a - 10);
-	else if (x == 'X')
-		c += ft_putchar('A' + a - 10);
+	int	c;
+
+	c = 0;
+	if (n == -2147483648)
+		return (ft_putstr("-2147483648"));
+	if (n < 0)
+	{
+		c += ft_putchar('-');
+		n = -n;
+	}
+	if (n >= 10)
+		c += ft_put_decimal(n / 10);
+	c += ft_putchar((n % 10) + '0');
 	return (c);
 }

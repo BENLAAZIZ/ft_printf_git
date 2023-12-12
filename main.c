@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putdec.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 18:07:36 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/10 19:42:13 by hben-laz         ###   ########.fr       */
+/*   Created: 2023/12/12 11:56:58 by hben-laz          #+#    #+#             */
+/*   Updated: 2023/12/12 12:17:59 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int ft_putdec(int n)
+int main()
 {
-    int c = 0;
-
-    if (n == -2147483648)
-        return ft_putstr("-2147483648");
-    if (n < 0)
-    {
-        c += ft_putchar('-');
-        n = -n;
-    }
-    if (n >= 10)
-        c += ft_putdec(n / 10);
-    c += ft_putchar((n % 10) + '0'); 
-    return c;
+	int a;
+	a = 5;
+	ft_printf("%s\n%s", "dfsf", "fdafasf");
 }
-

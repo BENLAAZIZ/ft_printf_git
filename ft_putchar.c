@@ -5,16 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 17:41:10 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/10 17:47:43 by hben-laz         ###   ########.fr       */
+/*   Created: 2023/12/06 15:01:32 by hben-laz          #+#    #+#             */
+/*   Updated: 2023/12/08 12:10:39 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	ft_putchar(const char c)
+int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	write (1, &c, 1);
 	return (1);
 }

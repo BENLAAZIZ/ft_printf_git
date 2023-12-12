@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-laz <hben-laz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 15:05:35 by hben-laz          #+#    #+#             */
-/*   Updated: 2023/12/11 12:55:28 by hben-laz         ###   ########.fr       */
+/*   Created: 2023/12/06 16:22:02 by hben-laz          #+#    #+#             */
+/*   Updated: 2023/12/10 21:16:28 by hben-laz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s)
+int	ft_puthex(unsigned int n, char x)
 {
-	int	i;
+	int	remainder;
+	int	c;
 
-	i = 0;
-	if (s == NULL)
-		return (ft_putstr("(null)"));
-	while (s[i] != '\0')
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-	return (i);
+	c = 0;
+	if (n / 16 > 0)
+		c += ft_puthex(n / 16, x);
+	remainder = n % 16;
+	if (remainder < 10)
+		c += ft_putchar('0' + remainder);
+	else if (x == 'x')
+		c += ft_putchar('a' + remainder - 10);
+	else if (x == 'X')
+		c += ft_putchar('A' + remainder - 10);
+	return (c);
 }
